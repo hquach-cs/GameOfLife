@@ -127,7 +127,7 @@ function ChangeValue(seed, grid_width, grid_height, initChance) {
     this.grid_height = Number(grid_height);
   }
   if (initChance != null) {
-    this.initChance = initChance;
+    this.initChance = 1 - initChance;
   }
   this.canvas.width = this.grid_width * this.size;
   this.canvas.height = this.grid_height * this.size;

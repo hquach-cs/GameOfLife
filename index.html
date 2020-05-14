@@ -12,6 +12,18 @@
     <script src="js/main.js"></script>
   </head>
   <body>
+    <h1>Conway's Game Of Life</h1>
+    <h4>
+      Rules (<a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
+        >Game of Life's Wiki.</a
+      >):
+    </h4>
+    <p>1. Any live cell with two or three live neighbours survives.</p>
+    <p>2. Any dead cell with three live neighbours becomes a live cell.</p>
+    <p>
+      3. All other live cells die in the next generation. Similarly, all other
+      dead cells stay dead.
+    </p>
     <div class="options">
       <button class="start" id="start" onClick="startGOL()">Start</button>
       <label for="sec">Sec:</label>
@@ -90,7 +102,7 @@
         id="init_chance"
         name="init_chance"
         value="0.5"
-        min="0.01"
+        min="0"
         max="1"
         step="0.01"
         oninput="init_chance_number.value=this.value; ChangeValue(null,null,null,this.value)"
