@@ -12,6 +12,91 @@
     <script src="js/main.js"></script>
   </head>
   <body>
+    <div class="options">
+      <button class="start" id="start" onClick="startGOL()">Start</button>
+      <label for="sec">Sec:</label>
+      <input
+        type="number"
+        id="sec"
+        name="sec"
+        value="5"
+        min="1"
+        max="10"
+        step="1"
+        oninput="ChangeSec(this.value)"
+      />
+      <label for="seed">Seed:</label>
+      <input
+        type="number"
+        id="seed"
+        name="seed"
+        value="1"
+        min="1"
+        oninput="ChangeValue(this.value,null,null,null)"
+      />
+      <label for="grid_width_range">Grid Width:</label>
+      <input
+        type="number"
+        id="grid_width_number"
+        name="grid_width_number"
+        value="20"
+        min="1"
+        max="50"
+        step="1"
+        oninput="grid_width_range.value = this.value; ChangeValue(null,this.value,null,null)"
+      />
+      <input
+        type="range"
+        id="grid_width_range"
+        name="grid_width_range"
+        value="20"
+        min="1"
+        max="50"
+        oninput="grid_width_number.value=this.value; ChangeValue(null,this.value,null,null)"
+      />
+      <label for="grid_height_range">Grid Height:</label>
+      <input
+        type="number"
+        id="grid_height_number"
+        name="grid_height_number"
+        value="20"
+        step="1"
+        min="1"
+        max="50"
+        oninput="grid_height_range.value = this.value; ChangeValue(null,null,this.value,null)"
+      />
+      <input
+        type="range"
+        id="grid_height_range"
+        name="grid_height_range"
+        value="20"
+        min="1"
+        max="50"
+        oninput="grid_height_number.value=this.value; ChangeValue(null,null,this.value,null)"
+      />
+      <label for="init_chance">Population Chance:</label>
+      <input
+        type="number"
+        id="init_chance_number"
+        name="init_chance_number"
+        value="0.5"
+        step="0.01"
+        min="0.01"
+        max="1"
+        oninput="init_chance.value = this.value; ChangeValue(null,null,null,this.value)"
+      />
+      <input
+        type="range"
+        id="init_chance"
+        name="init_chance"
+        value="0.5"
+        min="0.01"
+        max="1"
+        step="0.01"
+        oninput="init_chance_number.value=this.value; ChangeValue(null,null,null,this.value)"
+      />
+    </div>
     <canvas id="grid"></canvas>
+    <script type="text/javascript"></script>
   </body>
 </html>

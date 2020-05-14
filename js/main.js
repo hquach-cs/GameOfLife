@@ -10,17 +10,21 @@ var grid;
 var size = 20;
 var seed = 1;
 var initChance = 0.5;
-var done = false;
-
+var done = true;
+var time = 5;
 $(document).ready(function () {
   canvas = document.getElementById("grid");
   context = canvas.getContext("2d");
   canvas.width = grid_width * size;
+
   canvas.height = grid_height * size;
   grid = initGrid(grid_height, grid_width);
+  canvas.addEventListener("mousedown", function (e) {
+    getMousePosition(canvas, e);
+  });
   initGOL(grid, seed, initChance);
   drawGrid(grid, context, grid_height, grid_width);
-  GameOfLife(grid);
+  // GameOfLife(grid);
 });
 
 function GameOfLife() {
@@ -46,7 +50,7 @@ function GameOfLife() {
   if (alive.length === 0) done = true;
   drawGrid(grid, context, grid_height, grid_width);
   console.log("Running");
-  if (!done) setTimeout(GameOfLife, 5000);
+  if (!done) setTimeout(GameOfLife, time * 1000);
 }
 
 function checkPopulation(population) {
@@ -89,4 +93,46 @@ function checkPopulation(population) {
     }
   });
   return stayAlive;
+}
+
+function startGOL() {
+  done = !done;
+  if (!done) setTimeout(GameOfLife, time * 1000);
+  if (done) {
+    document.getElementById("start").innerHTML = "Start";
+  } else {
+    document.getElementById("start").innerHTML = "Stop";
+  }
+}
+
+function getMousePosition(canvas, event) {
+  let rect = canvas.getBoundingClientRect();
+  let x = event.clientX - rect.left;
+  let y = event.clientY - rect.top;
+  console.log("Coordinate x: " + x, "Coordinate y: " + y);
+}
+
+function ChangeValue(seed, grid_width, grid_height, initChance) {
+  if (seed != null || seed != "") {
+    this.seed = seed;
+  }
+  if (grid_width != null) {
+    this.grid_width = Number(grid_width);
+  }
+  if (grid_height != null) {
+    this.grid_height = Number(grid_height);
+  }
+  if (initChance != null) {
+    this.initChance = initChance;
+  }
+  this.canvas.width = this.grid_width * this.size;
+  this.canvas.height = this.grid_height * this.size;
+  console.log(this.grid_height, this.grid_width);
+  this.grid = initGrid(this.grid_height, this.grid_width);
+  initGOL(this.grid, this.seed, this.initChance);
+  drawGrid(this.grid, this.context, this.grid_height, this.grid_width);
+}
+
+function ChangeSec(sec) {
+  this.time = sec;
 }

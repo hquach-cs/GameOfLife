@@ -1,5 +1,5 @@
 function initGrid(grid_height, grid_width) {
-  var grid = new Array(grid_height);
+  let grid = new Array(grid_height);
   for (i = 0; i < grid_height; i++) {
     grid[i] = new Array(grid_width);
   }
