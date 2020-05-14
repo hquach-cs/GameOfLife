@@ -23,3 +23,15 @@ function drawGrid(grid, context, grid_height, grid_width) {
     }
   }
 }
+
+function changeGrid(grid, i, j) {
+  grid[i][j] = !grid[i][j];
+  if (grid[i][j] === true) {
+    context.fillStyle = "#000000";
+  } else {
+    context.fillStyle = "#FFFFFF";
+  }
+  context.fillRect(j * size, i * size, size, size);
+  context.rect(j * size, i * size, size, size);
+  context.stroke();
+}

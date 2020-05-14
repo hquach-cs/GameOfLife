@@ -110,6 +110,10 @@ function getMousePosition(canvas, event) {
   let x = event.clientX - rect.left;
   let y = event.clientY - rect.top;
   console.log("Coordinate x: " + x, "Coordinate y: " + y);
+  let i = Math.floor(y / size);
+  let j = Math.floor(x / size);
+  console.log(grid[i][j]);
+  changeGrid(grid, i, j);
 }
 
 function ChangeValue(seed, grid_width, grid_height, initChance) {
