@@ -1,6 +1,6 @@
 # Conway's Game of Life
 
-[### View Demo](https://hquach-cs.github.io/GameOfLife/)
+### [View Demo](https://hquach-cs.github.io/GameOfLife/)
 
 This project is my open source visualization of Conway's "Game of Life". Game of life is a cellular automata that works based on an initial state. 
 
