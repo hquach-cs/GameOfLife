@@ -4,6 +4,12 @@
 
 This project is my open source visualization of Conway's "Game of Life". Game of life is a cellular automata that works based on an initial state. 
 
+## Rules [Wiki](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+
+1. Any live cell with two or three live neighbours survives.
+1. Any dead cell with three live neighbours becomes a live cell.
+1. All other live cells die in the next generation. Similarly, all other dead cells stay dead.
+
 ## Skills
 
 With this project, I attended to learn some tools/skills for professional use:
